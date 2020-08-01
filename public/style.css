@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+  background-color: #dadad1;
+}
+
+header {
+  font-size: calc(12px + 2vmin);
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  font-size: calc(20px + 5vmin);
+  margin: 20px 0 8px;
+  background-color: #c5c5ba;
+  border: 1px solid #c5c5ba;
+}
+
+input:focus, select:focus {
+  outline: none;
+  background-color: #b9b9af;
+}
+
+select, option {
+  font-size: calc(12px + 2vmin);
+  background-color: #c5c5ba;
+}
+
+header, select, option {
+  font-family: 'Roboto';
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 22vh);
+  gap: 2vw;
+  max-width: 54vmax;
+  min-width: 316px;
+  margin: 0 auto;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.h2 {
+  font-family: 'Roboto Slab', 'serif';
+  font-size: calc(20px + 4vmin);
+  margin: 20px 0 30px;
+}
+
+.main div {
+  font-size: calc(16px + 2vmin);
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
+  max-width: 60vmax;
+  min-width: 316px;
+  margin: 0 auto;
+  max-height: 95vh;
+  padding: 0 1vw;
+  /* background-color: #d5d8dc; */
+}
+
+.categories {
+  padding: 0 8px 4px;
+  background-color: #c5c5ba;
+}
+
+.control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 20px;
+  row-gap: 16px;
+  font-size: calc(20px + 2vmin);
+  margin-top: 20px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control div, .main div {
+  background-color: #c5c5ba;
+}
+
+.control div:hover, .main div:hover, .categories:hover {
+  background-color: #b9b9af;
+  cursor: pointer;
+}
+
+.control div:last-child {
+  grid-column: span 3;
+}
+
+@media (max-width: 940px) {
+  .wrap {
+    max-width: 100vmax;
+  }
+}
+
+@media (max-width: 480px) {
+  .h2 {
+    margin: 10px 0 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+  input {
+    font-size: calc(20px + 4vmin);
+  }
+}
+
