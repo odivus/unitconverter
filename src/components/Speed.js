@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from './Header';
 
 function Speed() {
   useEffect(() => {
@@ -6,8 +7,14 @@ function Speed() {
   });
 
   return (
-    <div>
-      Speed
+    <div className='wrap'>
+      <section>
+        <Header />
+      </section>
+
+      <section className='contol'>
+
+      </section>
     </div>
   );
 }

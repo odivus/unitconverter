@@ -1,10 +1,15 @@
 import React from 'react';
+import {Link, useLocation} from 'react-router-dom';
 
 function Header() {
+  const location = useLocation();
+
   return (
-    <div>
-      
-    </div>
+    <header>
+      <span className="categories">
+        <Link to='/'>Categories</Link>
+      </span>{location.pathname}
+    </header>
   );
 }
 
