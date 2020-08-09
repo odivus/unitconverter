@@ -1,4 +1,5 @@
 import React from 'react';
+// import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 
@@ -31,10 +32,12 @@ describe('Header Component', () => {
       </Router>
     );
     
+    // html в одну строку в кавычках!
     const renderedHtml = '<header><span class="categories"><a href="/">Categories</a></span>localhost:3000/speed</header>'
 
     expect(header.html()).toEqual(renderedHtml);
     // expect(header.find('a')).toHaveLength(1);
+    header.unmount();
   })
 
 })
