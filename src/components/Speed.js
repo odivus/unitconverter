@@ -12,36 +12,29 @@ function Speed() {
   const [selectOne, setSelectOne] = useState('miph');
   const [selectTwo, setSelectTwo] = useState('kmph');
 
-  const [inputOneConverted, setInputOneConverted] = useState('');
-  const [inputTwoConverted, setInputTwoConverted] = useState('');
+  const [convertedValue, setConvertedValue] = useState('');
+  // const [inputOneConverted, setInputOneConverted] = useState('');
+  // const [inputTwoConverted, setInputTwoConverted] = useState('');
 
   // useEffect(() => {
   // });
   
   useEffect(() => {
     document.title = 'Speed';
-    console.log('Speed useEffect start');
+    // console.log('Speed useEffect start');
     
     if (inputOne) {
       const convertedValue = doConvert(inputOne, selectOne, selectTwo);
-      setInputTwoConverted(convertedValue.toString());
+      setConvertedValue(convertedValue.toString());
     }
 
     if (inputTwo) {
       const convertedValue = doConvert(inputTwo, selectTwo, selectOne);
-      setInputOneConverted(convertedValue.toString());
-    }
-
-    if (!inputOne && !inputTwo) {
-      console.log('Parent noInputOne, noInputTwo');
-      setInputOneConverted('');
-      setInputTwoConverted('');
+      setConvertedValue(convertedValue.toString());
     }
 
   }, [inputOne, 
-      inputOneConverted, 
       inputTwo, 
-      inputTwoConverted, 
       selectOne, 
       selectTwo]);
 
@@ -50,22 +43,20 @@ function Speed() {
   // console.log(selectOne);
   // console.log(selectTwo);
 
-  console.log(inputOneConverted);
-  console.log(inputTwoConverted);
-
+  console.log(convertedValue);
 
   return (
     <div className='wrap'>
       <section>
         <Header />
         <Input 
-          inputValueConverted={inputOneConverted}
+          convertedValue={convertedValue}
           sendValueToParentState={setInputOne} />
         <Select 
           selected={selectOne}
           sendValueToParentState={setSelectOne} />
         <Input 
-          inputValueConverted={inputTwoConverted}
+          convertedValue={convertedValue}
           sendValueToParentState={setInputTwo} />
         <Select 
           selected={selectTwo}

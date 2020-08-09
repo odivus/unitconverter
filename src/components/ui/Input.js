@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import checkInput from '../../utilties/checkInput';
 
-function Input({ inputValueConverted, sendValueToParentState }) {
-  const [inputValue, setInputValue] = useState(inputValueConverted);
+function Input({ convertedValue, sendValueToParentState }) {
+  const [inputValue, setInputValue] = useState('');
 
   console.log(inputValue);
   
   useEffect(() => {
-    console.log(inputValueConverted);
-    if (inputValueConverted) setInputValue(inputValueConverted);
-  }, [inputValue, inputValueConverted]);
+    // console.log(convertedValue);
+    if (convertedValue && !inputValue) setInputValue(convertedValue);
+     
+    // if (convertedValue) {
+    //   if (!inputValue) setInputValue(convertedValue);
+    // }
+  }, [inputValue, convertedValue]);
 
   function handleOnChange(e) {
     const { value } = e.target;
     e.preventDefault();
 
     if (checkInput(value)) {
-      console.log('Check Input Value Ok');
+      // console.log('Check Input Value Ok');
       setInputValue(value);
       sendValueToParentState(value);
     }
