@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
-import Input from './ui/Input';
+// import Input from './ui/Input';
+import InputOne from './ui/Input-one';
+import InputTwo from './ui/Input-two';
 import Select from './ui/Select';
 
 import doConvert from '../utilties/do-convert';
@@ -52,14 +54,14 @@ function Speed() {
     <div className='wrap'>
       <section>
         <Header />
-        <Input 
+        <InputOne 
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue}
           sendValueToParentState={setInputOne} />
         <Select 
           selected={selectOne}
           sendValueToParentState={setSelectOne} />
-        <Input 
+        <InputTwo 
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue}
           sendValueToParentState={setInputTwo} />
