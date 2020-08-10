@@ -22,6 +22,10 @@ function Speed() {
   useEffect(() => {
     document.title = 'Speed';
     // console.log('Speed useEffect start');
+
+    console.log('Speed useEffect Input One Value: ' + inputOne);
+    console.log('Speed useEffect Input Two Value: ' + inputTwo);
+    console.log('Speed useEffect Converted Value: ' + convertedValue);
     
     if (inputOne) {
       const convertedValue = doConvert(inputOne, selectOne, selectTwo);
@@ -36,14 +40,13 @@ function Speed() {
   }, [inputOne, 
       inputTwo, 
       selectOne, 
-      selectTwo]);
+      selectTwo,
+      convertedValue]);
 
-  console.log(inputOne);
-  console.log(inputTwo);
+  // console.log(inputOne);
+  // console.log(inputTwo);
   // console.log(selectOne);
   // console.log(selectTwo);
-
-  console.log(convertedValue);
 
   return (
     <div className='wrap'>
@@ -51,12 +54,14 @@ function Speed() {
         <Header />
         <Input 
           convertedValue={convertedValue}
+          setConvertedValue={setConvertedValue}
           sendValueToParentState={setInputOne} />
         <Select 
           selected={selectOne}
           sendValueToParentState={setSelectOne} />
         <Input 
           convertedValue={convertedValue}
+          setConvertedValue={setConvertedValue}
           sendValueToParentState={setInputTwo} />
         <Select 
           selected={selectTwo}

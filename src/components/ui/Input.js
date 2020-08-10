@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import checkInput from '../../utilties/checkInput';
 
-function Input({ convertedValue, sendValueToParentState }) {
-  const [inputValue, setInputValue] = useState('');
+function Input({ convertedValue, setConvertedValue, sendValueToParentState }) {
+  const [inputValue, setInputValue] = useState(convertedValue);
 
-  console.log(inputValue);
-  
   useEffect(() => {
-    // console.log(convertedValue);
+    console.log('Input Value' + inputValue);
+    console.log('Input Converted Value' + convertedValue);
     if (convertedValue && !inputValue) setInputValue(convertedValue);
-     
+
     // if (convertedValue) {
     //   if (!inputValue) setInputValue(convertedValue);
     // }
@@ -23,6 +22,11 @@ function Input({ convertedValue, sendValueToParentState }) {
       // console.log('Check Input Value Ok');
       setInputValue(value);
       sendValueToParentState(value);
+    }
+
+    if (!value) {
+      setInputValue('');
+      setConvertedValue('');
     }
   }
 
