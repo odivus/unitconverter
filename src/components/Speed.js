@@ -15,11 +15,6 @@ function Speed() {
   const [selectTwo, setSelectTwo] = useState('kmph');
 
   const [convertedValue, setConvertedValue] = useState('');
-  // const [inputOneConverted, setInputOneConverted] = useState('');
-  // const [inputTwoConverted, setInputTwoConverted] = useState('');
-
-  // useEffect(() => {
-  // });
   
   useEffect(() => {
     document.title = 'Speed';
@@ -55,16 +50,18 @@ function Speed() {
       <section>
         <Header />
         <InputOne 
+          inputOne={inputOne}
+          setInputOne={setInputOne}
           convertedValue={convertedValue}
-          setConvertedValue={setConvertedValue}
-          sendValueToParentState={setInputOne} />
+          setConvertedValue={setConvertedValue}/>
         <Select 
           selected={selectOne}
           sendValueToParentState={setSelectOne} />
         <InputTwo 
+          inputTwo={inputTwo}
+          setInputTwo={setInputTwo}
           convertedValue={convertedValue}
-          setConvertedValue={setConvertedValue}
-          sendValueToParentState={setInputTwo} />
+          setConvertedValue={setConvertedValue} />
         <Select 
           selected={selectTwo}
           sendValueToParentState={setSelectTwo} />

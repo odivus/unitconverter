@@ -1,32 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import checkInput from '../../utilties/checkInput';
 
-function InputOne({ convertedValue, setConvertedValue, sendValueToParentState }) {
-  const [inputValue, setInputValue] = useState(convertedValue);
+function InputOne(props) {
+  const {
+    inputOne,
+    setInputOne,
+    convertedValue,
+    setConvertedValue,
+  } = props;
 
-  useEffect(() => {
-    console.log('InputOne Value' + inputValue);
-    console.log('Converted Value' + convertedValue);
-    if (convertedValue && !inputValue) setInputValue(convertedValue);
+  console.log('InputOne Value ' + inputOne);
+  console.log('Converted Value ' + convertedValue);
 
-    // if (convertedValue) {
-    //   if (!inputValue) setInputValue(convertedValue);
-    // }
-  }, [inputValue, convertedValue]);
+  let inputOneValue = '';
+  inputOneValue = !inputOne ? convertedValue : inputOne;
 
   function handleOnChange(e) {
     const { value } = e.target;
     e.preventDefault();
 
-    if (checkInput(value)) {
-      // console.log('Check Input Value Ok');
-      setInputValue(value);
-      sendValueToParentState(value);
+    if (value) {
+      if (checkInput(value)) {
+        // console.log('Check Input Value Ok');
+        setInputOne(value);
+        setConvertedValue(convertedValue);
+      }
     }
 
     if (!value) {
       setConvertedValue('');
-      setInputValue('');
+      setInputOne('');
     }
   }
 
@@ -35,7 +38,7 @@ function InputOne({ convertedValue, setConvertedValue, sendValueToParentState })
 
   return (
     <input
-      value={inputValue}
+      value={inputOneValue}
       type='text'
       maxLength='19'
       onChange={handleOnChange} />
