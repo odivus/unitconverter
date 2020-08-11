@@ -1,33 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import checkInput from '../../utilties/checkInput';
 
-function Input({ convertedValue, sendValueToParentState }) {
-  const [inputValue, setInputValue] = useState('');
+function Input(props) {
+  const { 
+    name,
+    inputOne, 
+    inputTwo, 
+    convertedValue, 
+    setInputOne,
+    setInputTwo,
+    setConvertedValue, 
+  } = props;
+// 
+  let inputValue = '';
 
-  console.log(inputValue);
-  
-  useEffect(() => {
-    // console.log(convertedValue);
-    if (convertedValue && !inputValue) setInputValue(convertedValue);
-     
-    // if (convertedValue) {
-    //   if (!inputValue) setInputValue(convertedValue);
-    // }
-  }, [inputValue, convertedValue]);
+  // inputValue = inputTwo ? convertedValue : inputOne;
+
+  if (inputOne) {
+    inputValue = inputOne;
+  }
+
+  if (inputTwo) {
+    inputValue = inputTwo;
+  }
+
+  // if (inputTwo) {
+  //   inputValue = convertedValue;
+  // } else {
+  //   inputValue = inputOne;
+  // }
 
   function handleOnChange(e) {
     const { value } = e.target;
     e.preventDefault();
 
+    if (!value) setConvertedValue('');
+
     if (checkInput(value)) {
-      // console.log('Check Input Value Ok');
-      setInputValue(value);
-      sendValueToParentState(value);
+      if (name === 'inputOne') {
+        setInputOne(value);
+        setInputTwo(convertedValue);
+      } else {
+        setInputTwo(value);
+      }
     }
+   
   }
 
-  // console.log(inputValue);
-  // console.log(inputValueConverted);
+  console.log(name);
+  console.log('Input One Value: ' + inputOne);
+  console.log('Input Two Value: ' + inputTwo);
+  console.log('Input One Converted Value: ' + convertedValue);
 
   return (
     <input 

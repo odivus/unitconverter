@@ -50,14 +50,20 @@ function Speed() {
       <section>
         <Header />
         <Input 
+          name='inputOne'
+          inputOne={inputOne}
           convertedValue={convertedValue}
-          sendValueToParentState={setInputOne} />
+          setConvertedValue={setConvertedValue}
+          setInputOne={setInputOne} />
         <Select 
           selected={selectOne}
           sendValueToParentState={setSelectOne} />
         <Input 
+          name='inputTwo'
+          inputTwo={inputTwo}
           convertedValue={convertedValue}
-          sendValueToParentState={setInputTwo} />
+          setConvertedValue={setConvertedValue}
+          setInputTwo={setInputTwo} />
         <Select 
           selected={selectTwo}
           sendValueToParentState={setSelectTwo} />
