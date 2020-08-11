@@ -5,6 +5,7 @@ function InputOne(props) {
   const {
     inputOne,
     setInputOne,
+    setInputTwo,
     convertedValue,
     setConvertedValue,
   } = props;
@@ -28,13 +29,11 @@ function InputOne(props) {
     }
 
     if (!value) {
-      setConvertedValue('');
       setInputOne('');
+      setInputTwo('');
+      setConvertedValue('');
     }
   }
-
-  // console.log(inputValue);
-  // console.log(inputValueConverted);
 
   return (
     <input

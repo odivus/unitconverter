@@ -34,6 +34,14 @@ function Speed() {
       setConvertedValue(convertedValue.toString());
     }
 
+    if (inputOne && inputTwo) {
+      setInputTwo(prevState => {
+        if (prevState) {
+          setInputOne('');
+          return prevState;}
+      });
+    }
+
   }, [inputOne, 
       inputTwo, 
       selectOne, 
@@ -52,6 +60,7 @@ function Speed() {
         <InputOne 
           inputOne={inputOne}
           setInputOne={setInputOne}
+          setInputTwo={setInputTwo}
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue}/>
         <Select 
@@ -59,6 +68,7 @@ function Speed() {
           sendValueToParentState={setSelectOne} />
         <InputTwo 
           inputTwo={inputTwo}
+          setInputOne={setInputOne}
           setInputTwo={setInputTwo}
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue} />

@@ -4,6 +4,7 @@ import checkInput from '../../utilties/checkInput';
 function InputTwo(props) {
   const {
     inputTwo,
+    setInputOne,
     setInputTwo,
     convertedValue,
     setConvertedValue,
@@ -28,13 +29,11 @@ function InputTwo(props) {
     }
 
     if (!value) {
-      setConvertedValue('');
+      setInputOne('');
       setInputTwo('');
+      setConvertedValue('');
     }
   }
-
-  // console.log(inputValue);
-  // console.log(inputValueConverted);
 
   return (
     <input
