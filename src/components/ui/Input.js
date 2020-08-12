@@ -1,34 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import checkInput from '../../utilties/checkInput';
 
-function Input(props) {
-  const { 
-    name,
-    inputOne, 
-    inputTwo, 
-    convertedValue, 
-    setInputOne,
-    setInputTwo,
-    setConvertedValue, 
-  } = props;
-// 
-  let inputValue = '';
+function Input({ convertedValue, setConvertedValue, sendValueToParentState }) {
+  const [inputValue, setInputValue] = useState(convertedValue);
 
-  // inputValue = inputTwo ? convertedValue : inputOne;
+  useEffect(() => {
+    console.log('Input Value' + inputValue);
+    console.log('Input Converted Value' + convertedValue);
+    if (convertedValue && !inputValue) setInputValue(convertedValue);
 
-  if (inputOne) {
-    inputValue = inputOne;
-  }
-
-  if (inputTwo) {
-    inputValue = inputTwo;
-  }
-
-  // if (inputTwo) {
-  //   inputValue = convertedValue;
-  // } else {
-  //   inputValue = inputOne;
-  // }
+    // if (convertedValue) {
+    //   if (!inputValue) setInputValue(convertedValue);
+    // }
+  }, [inputValue, convertedValue]);
 
   function handleOnChange(e) {
     const { value } = e.target;
@@ -44,7 +28,11 @@ function Input(props) {
         setInputTwo(value);
       }
     }
-   
+
+    if (!value) {
+      setInputValue('');
+      setConvertedValue('');
+    }
   }
 
   console.log(name);
