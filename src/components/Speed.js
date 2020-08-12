@@ -20,8 +20,6 @@ function Speed() {
   
   useEffect(() => {
     document.title = 'Speed';
-    // console.log('Speed useEffect start');
-
     console.log('Speed useEffect Input One Value: ' + inputOne);
     console.log('Speed useEffect Input Two Value: ' + inputTwo);
     console.log('Speed useEffect Converted Value: ' + convertedValue);
