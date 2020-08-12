@@ -6,6 +6,7 @@ function InputOne(props) {
     inputOne,
     setInputOne,
     setInputTwo,
+    setActiveInput,
     convertedValue,
     setConvertedValue,
   } = props;
@@ -16,13 +17,12 @@ function InputOne(props) {
   let inputOneValue = '';
   inputOneValue = !inputOne ? convertedValue : inputOne;
 
-  function handleOnChange(e) {
+  function onChange(e) {
     const { value } = e.target;
     e.preventDefault();
 
     if (value) {
       if (checkInput(value)) {
-        // console.log('Check Input Value Ok');
         setInputOne(value);
         setConvertedValue(convertedValue);
       }
@@ -40,7 +40,9 @@ function InputOne(props) {
       value={inputOneValue}
       type='text'
       maxLength='19'
-      onChange={handleOnChange} />
+      onFocus={() => setActiveInput('one')}
+      onBlur={() => setActiveInput('')}
+      onChange={onChange} />
   );
 }
 

@@ -11,6 +11,8 @@ function Speed() {
   const [inputOne, setInputOne] = useState('');
   const [inputTwo, setInputTwo] = useState('');
 
+  const [activeInput, setActiveInput] = useState('');
+
   const [selectOne, setSelectOne] = useState('miph');
   const [selectTwo, setSelectTwo] = useState('kmph');
 
@@ -35,18 +37,33 @@ function Speed() {
     }
 
     if (inputOne && inputTwo) {
-      setInputTwo(prevState => {
-        if (prevState) {
-          setInputOne('');
-          return prevState;}
-      });
+      if (activeInput === 'two') {
+        setInputTwo(prevState => {
+          if (prevState) {
+            setInputOne('');
+            return prevState;
+          }
+        });
+      }
+      
+      if (activeInput === 'one') {
+        setInputOne(prevState => {
+          if (prevState) {
+            setInputTwo('');
+            return prevState;
+          }
+        });
+      }
     }
 
   }, [inputOne, 
       inputTwo, 
       selectOne, 
       selectTwo,
+      activeInput,
       convertedValue]);
+
+  console.log(activeInput);
 
   // console.log(inputOne);
   // console.log(inputTwo);
@@ -61,6 +78,7 @@ function Speed() {
           inputOne={inputOne}
           setInputOne={setInputOne}
           setInputTwo={setInputTwo}
+          setActiveInput={setActiveInput}
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue}/>
         <Select 
@@ -70,6 +88,7 @@ function Speed() {
           inputTwo={inputTwo}
           setInputOne={setInputOne}
           setInputTwo={setInputTwo}
+          setActiveInput={setActiveInput}
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue} />
         <Select 

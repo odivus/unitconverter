@@ -6,6 +6,7 @@ function InputTwo(props) {
     inputTwo,
     setInputOne,
     setInputTwo,
+    setActiveInput,
     convertedValue,
     setConvertedValue,
   } = props;
@@ -22,7 +23,6 @@ function InputTwo(props) {
 
     if (value) {
       if (checkInput(value)) {
-        // console.log('Check Input Value Ok');
         setInputTwo(value);
         setConvertedValue(convertedValue);
       }
@@ -40,6 +40,8 @@ function InputTwo(props) {
       value={inputTwoValue}
       type='text'
       maxLength='19'
+      onFocus={() => setActiveInput('two')}
+      onBlur={() => setActiveInput('')}
       onChange={handleOnChange} />
   );
 }
