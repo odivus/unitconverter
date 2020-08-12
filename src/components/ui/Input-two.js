@@ -3,19 +3,22 @@ import checkInput from '../../utilties/checkInput';
 
 function InputTwo(props) {
   const {
-    inputTwo,
-    setInputOne,
-    setInputTwo,
+    inputValue,
+    setInput,
+    // inputTwo,
+    // setInputOne,
+    // setInputTwo,
     setActiveInput,
     convertedValue,
     setConvertedValue,
+    resetValues,
   } = props;
 
-  console.log('InputTwo Value ' + inputTwo);
+  console.log('InputTwo Value ' + inputValue);
   console.log('Converted Value ' + convertedValue);
 
-  let inputTwoValue = '';
-  inputTwoValue = !inputTwo ? convertedValue : inputTwo;
+  // let inputTwoValue = '';
+  // inputTwoValue = !inputTwo ? convertedValue : inputTwo;
 
   function handleOnChange(e) {
     const { value } = e.target;
@@ -23,25 +26,26 @@ function InputTwo(props) {
 
     if (value) {
       if (checkInput(value)) {
-        setInputTwo(value);
+        setInput(value);
         setConvertedValue(convertedValue);
       }
     }
 
     if (!value) {
-      setInputOne('');
-      setInputTwo('');
-      setConvertedValue('');
+      resetValues();
+      // setInputOne('');
+      // setInputTwo('');
+      // setConvertedValue('');
     }
   }
 
   return (
     <input
-      value={inputTwoValue}
+      value={inputValue}
       type='text'
       maxLength='19'
-      onFocus={() => setActiveInput('two')}
-      onBlur={() => setActiveInput('')}
+      onFocus={setActiveInput}
+      // onBlur={() => setActiveInput('')}
       onChange={handleOnChange} />
   );
 }

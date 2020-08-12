@@ -1,51 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import checkInput from '../../utilties/checkInput';
 
-function Input({ convertedValue, setConvertedValue, sendValueToParentState }) {
-  const [inputValue, setInputValue] = useState(convertedValue);
+function Input(props) {
+  const {
+    inputValue,
+    setInput,
+    setActiveInput,
+    convertedValue,
+    setConvertedValue,
+    resetValues,
+  } = props;
 
-  useEffect(() => {
-    console.log('Input Value' + inputValue);
-    console.log('Input Converted Value' + convertedValue);
-    if (convertedValue && !inputValue) setInputValue(convertedValue);
+  console.log('Input Value ' + inputValue);
+  console.log('Converted Value ' + convertedValue);
 
-    // if (convertedValue) {
-    //   if (!inputValue) setInputValue(convertedValue);
-    // }
-  }, [inputValue, convertedValue]);
-
-  function handleOnChange(e) {
+  function onChange(e) {
     const { value } = e.target;
     e.preventDefault();
 
-    if (!value) setConvertedValue('');
+    if (!value) resetValues();
 
-    if (checkInput(value)) {
-      if (name === 'inputOne') {
-        setInputOne(value);
-        setInputTwo(convertedValue);
-      } else {
-        setInputTwo(value);
+    if (value) {
+      if (checkInput(value)) {
+        setInput(value);
+        setConvertedValue(convertedValue);
       }
-    }
-
-    if (!value) {
-      setInputValue('');
-      setConvertedValue('');
     }
   }
 
-  console.log(name);
-  console.log('Input One Value: ' + inputOne);
-  console.log('Input Two Value: ' + inputTwo);
-  console.log('Input One Converted Value: ' + convertedValue);
-
   return (
-    <input 
+    <input
       value={inputValue}
-      type='text' 
+      type='text'
       maxLength='19'
-      onChange={handleOnChange} />
+      onFocus={setActiveInput}
+      onChange={onChange} />
   );
 }
 

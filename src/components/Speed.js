@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
-// import Input from './ui/Input';
-import InputOne from './ui/Input-one';
-import InputTwo from './ui/Input-two';
+import Input from './ui/Input';
+// import InputOne from './ui/Input-one';
+// import InputTwo from './ui/Input-two';
 import Select from './ui/Select';
 
 import doConvert from '../utilties/do-convert';
@@ -63,32 +63,48 @@ function Speed() {
 
   console.log(activeInput);
 
-  // console.log(inputOne);
-  // console.log(inputTwo);
-  // console.log(selectOne);
-  // console.log(selectTwo);
+  let inputOneValue = '',
+      inputTwoValue = '';
+
+  inputOneValue = !inputOne ? convertedValue : inputOne;
+  inputTwoValue = !inputTwo ? convertedValue : inputTwo;
+
+  const setActiveInputOne = () => setActiveInput('one'),
+        setActiveInputTwo = () => setActiveInput('two');
+
+  function resetValues() {
+    setInputOne('');
+    setInputTwo('');
+    setConvertedValue('');
+  }
 
   return (
     <div className='wrap'>
       <section>
         <Header />
-        <InputOne 
+        <Input 
+          inputValue={inputOneValue}
           inputOne={inputOne}
-          setInputOne={setInputOne}
-          setInputTwo={setInputTwo}
-          setActiveInput={setActiveInput}
+          setInput={setInputOne}
+          // setInputOne={setInputOne}
+          // setInputTwo={setInputTwo}
+          setActiveInput={setActiveInputOne}
           convertedValue={convertedValue}
-          setConvertedValue={setConvertedValue}/>
+          setConvertedValue={setConvertedValue}
+          resetValues={resetValues} />
         <Select 
           selected={selectOne}
           sendValueToParentState={setSelectOne} />
-        <InputTwo 
+        <Input 
+          inputValue={inputTwoValue}
           inputTwo={inputTwo}
-          setInputOne={setInputOne}
-          setInputTwo={setInputTwo}
-          setActiveInput={setActiveInput}
+          setInput={setInputTwo}
+          // setInputOne={setInputOne}
+          // setInputTwo={setInputTwo}
+          setActiveInput={setActiveInputTwo}
           convertedValue={convertedValue}
-          setConvertedValue={setConvertedValue} />
+          setConvertedValue={setConvertedValue}
+          resetValues={resetValues} />
         <Select 
           selected={selectTwo}
           sendValueToParentState={setSelectTwo} />
