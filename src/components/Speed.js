@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Input from './ui/Input';
-// import InputOne from './ui/Input-one';
-// import InputTwo from './ui/Input-two';
 import Select from './ui/Select';
 
 import doConvert from '../utilties/do-convert';
@@ -86,8 +84,6 @@ function Speed() {
           inputValue={inputOneValue}
           inputOne={inputOne}
           setInput={setInputOne}
-          // setInputOne={setInputOne}
-          // setInputTwo={setInputTwo}
           setActiveInput={setActiveInputOne}
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue}
@@ -99,8 +95,6 @@ function Speed() {
           inputValue={inputTwoValue}
           inputTwo={inputTwo}
           setInput={setInputTwo}
-          // setInputOne={setInputOne}
-          // setInputTwo={setInputTwo}
           setActiveInput={setActiveInputTwo}
           convertedValue={convertedValue}
           setConvertedValue={setConvertedValue}
