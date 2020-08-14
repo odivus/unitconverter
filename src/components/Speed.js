@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Input from './ui/Input';
 import Select from './ui/Select';
-
+import Control from './ui/Control';
 import doConvert from '../utilties/do-convert';
 
 function Speed() {
@@ -15,7 +15,7 @@ function Speed() {
   const [selectTwo, setSelectTwo] = useState('kmph');
 
   const [convertedValue, setConvertedValue] = useState('');
-  
+
   useEffect(() => {
     document.title = 'Speed';
     console.log('Speed useEffect Input One Value: ' + inputOne);
@@ -23,13 +23,21 @@ function Speed() {
     console.log('Speed useEffect Converted Value: ' + convertedValue);
     
     if (inputOne) {
-      const convertedValue = doConvert(inputOne, selectOne, selectTwo);
-      setConvertedValue(convertedValue.toString());
+      const inputOneCommaToDot = inputOne.replace(',', '.');
+      const convertedValue = doConvert(inputOneCommaToDot, 
+                                      selectOne, 
+                                      selectTwo);
+
+      setConvertedValue(convertedValue.toString().replace('.', ','));
     }
 
     if (inputTwo) {
-      const convertedValue = doConvert(inputTwo, selectTwo, selectOne);
-      setConvertedValue(convertedValue.toString());
+      const inputTwoCommaToDot = inputTwo.replace(',', '.');
+      const convertedValue = doConvert(inputTwoCommaToDot, 
+                                      selectTwo, 
+                                      selectOne);
+
+      setConvertedValue(convertedValue.toString().replace('.', ','));
     }
 
     if (inputOne && inputTwo) {
@@ -81,8 +89,10 @@ function Speed() {
       <section>
         <Header />
         <Input 
+          inputOneValue={inputOneValue}
+          inputName={'inputOne'}
+          activeInput={activeInput}
           inputValue={inputOneValue}
-          inputOne={inputOne}
           setInput={setInputOne}
           setActiveInput={setActiveInputOne}
           convertedValue={convertedValue}
@@ -92,8 +102,10 @@ function Speed() {
           selected={selectOne}
           sendValueToParentState={setSelectOne} />
         <Input 
+          inputTwoValue={inputTwoValue}
+          inputName={'inputTwo'}
+          activeInput={activeInput}
           inputValue={inputTwoValue}
-          inputTwo={inputTwo}
           setInput={setInputTwo}
           setActiveInput={setActiveInputTwo}
           convertedValue={convertedValue}
@@ -104,8 +116,13 @@ function Speed() {
           sendValueToParentState={setSelectTwo} />
       </section>
 
-      <section className='contol'>
-
+      <section className='control'>
+        <Control 
+          inputOne={inputOne}
+          inputTwo={inputTwo}
+          activeInput={activeInput}
+          setInputOne={setInputOne}
+          setInputTwo={setInputTwo} />
       </section>
     </div>
   );

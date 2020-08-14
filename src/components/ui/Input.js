@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import checkInput from '../../utilties/checkInput';
 
 function Input(props) {
   const {
+    inputOneValue,
+    inputTwoValue,
+    inputName,
+    activeInput,
     inputValue,
     setInput,
     setActiveInput,
@@ -10,6 +14,16 @@ function Input(props) {
     setConvertedValue,
     resetValues,
   } = props;
+
+  const inputEl = useRef(null);
+
+  useEffect(() => {
+    if (!activeInput && inputName === 'inputOne') inputEl.current.focus();
+    if ((inputOneValue && activeInput === 'one') || 
+        (inputTwoValue && activeInput === 'two')) {
+          inputEl.current.focus();
+    }
+  });
 
   console.log('Input Value ' + inputValue);
   console.log('Converted Value ' + convertedValue);
@@ -22,7 +36,7 @@ function Input(props) {
 
     if (value) {
       if (checkInput(value)) {
-        setInput(value);
+        setInput(value.replace('.', ','));
         setConvertedValue(convertedValue);
       }
     }
@@ -30,6 +44,7 @@ function Input(props) {
 
   return (
     <input
+      ref={inputEl}
       value={inputValue}
       type='text'
       maxLength='19'
