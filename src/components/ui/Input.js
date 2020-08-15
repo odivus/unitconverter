@@ -3,8 +3,8 @@ import checkInput from '../../utilties/checkInput';
 
 function Input(props) {
   const {
-    inputOneValue,
-    inputTwoValue,
+    // inputOneValue,
+    // inputTwoValue,
     inputName,
     activeInput,
     inputValue,
@@ -16,12 +16,17 @@ function Input(props) {
   } = props;
 
   const inputEl = useRef(null);
+  const setFocus = () => inputEl.current.focus();
 
   useEffect(() => {
-    if (!activeInput && inputName === 'inputOne') inputEl.current.focus();
-    if ((inputOneValue && activeInput === 'one') || 
-        (inputTwoValue && activeInput === 'two')) {
-          inputEl.current.focus();
+    if (!activeInput && inputName === 'inputOne') setFocus();
+    
+    if ((activeInput === 'one') && (inputName === 'inputOne')) {
+      setFocus();
+    }
+
+    if ((activeInput === 'two') && (inputName === 'inputTwo')) {
+      setFocus();
     }
   });
 

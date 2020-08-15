@@ -122,7 +122,9 @@ function Speed() {
           inputTwo={inputTwo}
           activeInput={activeInput}
           setInputOne={setInputOne}
-          setInputTwo={setInputTwo} />
+          setInputTwo={setInputTwo}
+          setConvertedValue={setConvertedValue}
+          resetValues={resetValues} />
       </section>
     </div>
   );
