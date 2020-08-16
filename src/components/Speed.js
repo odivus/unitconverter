@@ -84,6 +84,16 @@ function Speed() {
     setConvertedValue('');
   }
 
+  function saveFocusOnInput(e) {
+    const inputEl = document.getElementsByTagName('input');
+
+    for (let i = 0; i < inputEl.length; i++) {
+      if (document.activeElement === inputEl[i]) {
+        e.preventDefault();
+      }
+    }
+  }
+
   return (
     <div className='wrap'>
       <section>
@@ -116,7 +126,9 @@ function Speed() {
           sendValueToParentState={setSelectTwo} />
       </section>
 
-      <section className='control'>
+      <section 
+        className='control'
+        onMouseDown={saveFocusOnInput}>
         <Control 
           inputOne={inputOne}
           inputTwo={inputTwo}

@@ -16,6 +16,8 @@ function ControlItem({ controlData, otherProps }) {
   function onClick(item) {
     const reNumbers = /\d/;
 
+    if (item === 'clear') resetValues();
+
     if (reNumbers.test(item)) {
       if (activeInput === 'one') setInputOne(inputOne + item);
       if (activeInput === 'two') setInputTwo(inputTwo + item);
@@ -39,6 +41,7 @@ function ControlItem({ controlData, otherProps }) {
         if (str.length === 0) return resetValues();
         setInputOne(str);
       }
+
       if (activeInput === 'two') {
         const str = inputTwo.slice(0, -1);
         if (str.length === 0) return resetValues();

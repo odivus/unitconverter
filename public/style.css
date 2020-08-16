@@ -21,17 +21,21 @@ input {
   border: 1px solid #c5c5ba;
 }
 
-input:focus, select:focus {
+input:focus, 
+select:focus {
   outline: none;
   background-color: #b9b9af;
 }
 
-select, option {
+select, 
+option {
   font-size: calc(12px + 2vmin);
   background-color: #c5c5ba;
 }
 
-header, select, option {
+header, 
+select, 
+option {
   font-family: 'Roboto';
 }
 
@@ -89,11 +93,14 @@ header, select, option {
   align-items: center;
 }
 
-.control div, .main div {
+.control div, 
+.main div {
   background-color: #c5c5ba;
 }
 
-.control div:hover, .main div:hover, .categories:hover {
+.control div:hover, 
+.main div:hover, 
+.categories:hover {
   background-color: #b9b9af;
   cursor: pointer;
 }
