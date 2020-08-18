@@ -9,6 +9,17 @@ import {
 } from './tools';
 
 function creatComponent(selectOneDefault, selectTwoDefault) {
+  const errorMessage = 'Function creatComponent wait two string arguments';
+
+  if (arguments.length < 2) {
+    throw Error(errorMessage);
+  }
+  
+  if (typeof selectOneDefault !== 'string' || 
+      typeof selectTwoDefault !== 'string') {
+        throw Error(errorMessage);
+  }
+
   return function Component() {
     const [inputOne, setInputOne] = useState('');
     const [inputTwo, setInputTwo] = useState('');

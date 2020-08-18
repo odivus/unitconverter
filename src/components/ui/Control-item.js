@@ -11,8 +11,6 @@ function ControlItem({ controlData, otherProps }) {
     resetValues,
   } = otherProps;
 
-  console.log(inputOne.length);
-
   function onClick(item) {
     const reNumbers = /\d/;
 

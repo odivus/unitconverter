@@ -3,8 +3,6 @@ import checkInput from '../../utilties/checkInput';
 
 function Input(props) {
   const {
-    // inputOneValue,
-    // inputTwoValue,
     inputName,
     activeInput,
     inputValue,
