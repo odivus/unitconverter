@@ -2,6 +2,15 @@ import doConvert from '../../utilties/do-convert';
 
 const convertCommaToDot = (input) => input.replace(',', '.');
 
+export const convertDotToComma = (input) => input.replace('.', ',');
+
+export const removeAllSpaces = (input) => input.replace(/\s+/g, '');
+
+export const groupNumbers = (input) => {
+  const pattern = /(\d)(?=(\d{3})+(\D|$))/g;
+  return input.replace(pattern, '$1 ');
+}
+
 export const convertValue = (
   input, 
   selectOne, 

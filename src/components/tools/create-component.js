@@ -8,8 +8,8 @@ import {
   saveFocusOnInput,
 } from './tools';
 
-function creatComponent(selectOneDefault, selectTwoDefault) {
-  const errorMessage = 'Function creatComponent wait two string arguments';
+function createComponent(selectOneDefault, selectTwoDefault) {
+  const errorMessage = 'Function createComponent wait two string arguments';
 
   if (arguments.length < 2) {
     throw Error(errorMessage);
@@ -62,15 +62,6 @@ function creatComponent(selectOneDefault, selectTwoDefault) {
       }
 
       if (inputOne && inputTwo) {
-        if (activeInput === 'two') {
-          setInputTwo(prevState => {
-            if (prevState) {
-              setInputOne('');
-              return prevState;
-            }
-          });
-        }
-
         if (activeInput === 'one') {
           setInputOne(prevState => {
             if (prevState) {
@@ -79,8 +70,16 @@ function creatComponent(selectOneDefault, selectTwoDefault) {
             }
           });
         }
-      }
 
+        if (activeInput === 'two') {
+          setInputTwo(prevState => {
+            if (prevState) {
+              setInputOne('');
+              return prevState;
+            }
+          });
+        }
+      }
     }, [inputOne,
       inputTwo,
       selectOne,
@@ -139,4 +138,4 @@ function creatComponent(selectOneDefault, selectTwoDefault) {
   }
 }
 
-export default creatComponent;
+export default createComponent;

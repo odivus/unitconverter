@@ -1,5 +1,11 @@
 import React, {useRef, useEffect} from 'react';
 import checkInput from '../../utilties/checkInput';
+import compose from '../tools/compose';
+import {
+  convertDotToComma, 
+  groupNumbers,
+  removeAllSpaces,
+} from '../tools/tools';
 
 function Input(props) {
   const {
@@ -13,8 +19,8 @@ function Input(props) {
     resetValues,
   } = props;
 
-  const inputEl = useRef(null);
-  const setFocus = () => inputEl.current.focus();
+  const inputEl = useRef(null),
+        setFocus = () => inputEl.current.focus();
 
   useEffect(() => {
     if (!activeInput && inputName === 'inputOne') setFocus();
@@ -38,10 +44,28 @@ function Input(props) {
     if (!value) resetValues();
 
     if (value) {
-      if (checkInput(value)) {
-        setInput(value.replace('.', ','));
-        setConvertedValue(convertedValue);
+      const formattedValue = removeAllSpaces(value);
+
+      console.log(formattedValue);
+      
+      if (!checkInput(formattedValue)) return;
+
+      if (formattedValue.includes(',')) {
+        compose(
+          setInput,
+          convertDotToComma,
+        )(formattedValue);
       }
+
+      if (!formattedValue.includes(',')) {
+        compose(
+          setInput,
+          convertDotToComma,
+          groupNumbers
+        )(formattedValue);
+      }
+      
+      setConvertedValue(convertedValue);
     }
   }
 

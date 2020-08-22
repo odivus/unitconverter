@@ -1,4 +1,6 @@
 import formulas from '../data/formulas';
+import {removeAllSpaces} from '../components/tools/tools';
+import compose from '../../src/components/tools/compose';
 
 function doConvert(inputValue, selectOne, selectTwo) {
   if (selectOne === selectTwo) return inputValue;
@@ -6,9 +8,13 @@ function doConvert(inputValue, selectOne, selectTwo) {
   if (typeof inputValue !== 'string') return '';
 
   const formulasKey = `${selectOne}-${selectTwo}`,
-        formula = formulas[formulasKey];
+        doFormula = formulas[formulasKey];
 
-  return formula(parseFloat(inputValue, 10));
+  return compose(
+    doFormula,
+    parseFloat,
+    removeAllSpaces
+  )(inputValue);
 }
 
 export default doConvert;
