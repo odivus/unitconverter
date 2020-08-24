@@ -16,7 +16,9 @@ export const convertValue = (
   selectOne, 
   selectTwo, 
 ) => {
-  if (input === '0' || input === '0,') return '0';
+  const re = /^[0]{1,}[,0]{1,}$/;
+  
+  if (input === '0'|| input.search(re) !== -1) return '0';
 
   const convertedValue = doConvert(
     convertCommaToDot(input),
