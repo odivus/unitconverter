@@ -16,6 +16,8 @@ export const convertValue = (
   selectOne, 
   selectTwo, 
 ) => {
+  if (input === '0' || input === '0,') return '0';
+
   const convertedValue = doConvert(
     convertCommaToDot(input),
     selectOne,

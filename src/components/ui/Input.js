@@ -43,11 +43,11 @@ function Input(props) {
 
     if (!value) resetValues();
 
-    if (value) {
+    if (value && value.search(/^[0][0-9]{1,}$/) === -1) {
       const formattedValue = removeAllSpaces(value);
 
       console.log(formattedValue);
-      
+
       if (!checkInput(formattedValue)) return;
 
       if (formattedValue.includes(',')) {
