@@ -17,7 +17,7 @@ export const convertValue = (
   selectTwo, 
 ) => {
   const re = /^[0]{1,}[,0]{1,}$/;
-  
+
   if (input === '0'|| input.search(re) !== -1) return '0';
 
   const convertedValue = doConvert(
@@ -27,6 +27,18 @@ export const convertValue = (
   );
 
   return convertedValue.toString().replace('.', ',');
+}
+
+export const doSetConvertedValue = (
+  value, 
+  groupNumbers, 
+  setConvertedValue
+) => {
+  if (value.includes(',')) {
+    setConvertedValue(value);
+  } else {
+    setConvertedValue(groupNumbers(value));
+  }
 }
 
 export const saveFocusOnInput = (e) => {

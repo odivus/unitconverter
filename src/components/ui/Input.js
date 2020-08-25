@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import checkInput from '../../utilties/checkInput';
+import checkInput from '../../utilties/check-input';
 import compose from '../tools/compose';
 import {
   convertDotToComma, 

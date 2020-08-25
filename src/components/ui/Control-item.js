@@ -1,6 +1,8 @@
 import React from 'react';
-import checkInput from '../../utilties/checkInput';
-import compose from '../tools/compose';
+import checkInput from '../../utilties/check-input';
+import doBackspace from '../../utilties/do-backspace';
+import doComma from '../../utilties/do-comma';
+import doNumbers from '../../utilties/do-numbers';
 import {
   groupNumbers, 
   removeAllSpaces,
@@ -18,57 +20,51 @@ function ControlItem({ controlData, otherProps }) {
 
   function onClick(item) {
     const reNumbers = /\d/;
-
+  
     if (item === 'clear') resetValues();
 
     if (reNumbers.test(item) && (inputOne !== '0' && inputTwo !== '0')) {
-      if (activeInput === 'one' && inputOne.includes(',')) {
-        setInputOne(removeAllSpaces(inputOne) + item);
-      }
+      const args = [
+        item,
+        inputOne,
+        inputTwo,
+        activeInput,
+        setInputOne,
+        setInputTwo,
+        groupNumbers,
+        removeAllSpaces
+      ];
 
-      if (activeInput === 'one' && !inputOne.includes(',')) {
-        compose(
-          setInputOne,
-          groupNumbers
-        )(removeAllSpaces(inputOne) + item);
-      }
-
-      if (activeInput === 'two' && inputTwo.includes(',')) {
-        setInputTwo(removeAllSpaces(inputTwo) + item);
-      }
-
-      if (activeInput === 'two' && !inputTwo.includes(',')) {
-        compose(
-          setInputTwo,
-          groupNumbers
-        )(removeAllSpaces(inputTwo) + item);
-      }
+      doNumbers(args);
     }
 
     if (item === ',') {
-      if (activeInput === 'one') {
-        const str = removeAllSpaces((inputOne) + item);
-        if (checkInput(str)) setInputOne(str);
-      }
+      const args = [
+        item,
+        inputOne,
+        inputTwo,
+        checkInput,
+        activeInput,
+        setInputOne,
+        setInputTwo,
+        removeAllSpaces
+      ];
 
-      if (activeInput === 'two') {
-        const str = removeAllSpaces(inputTwo + item);
-        if (checkInput(str)) setInputTwo(str);
-      }
+      doComma(args);
     }
 
     if (item === '--') {
-      if (activeInput === 'one') {
-        const str = removeAllSpaces(inputOne).slice(0, -1);
-        if (str.length === 0) return resetValues();
-        setInputOne(groupNumbers(str));
-      }
+      const args = [
+        resetValues, 
+        groupNumbers, 
+        removeAllSpaces
+      ];
 
-      if (activeInput === 'two') {
-        const str = removeAllSpaces(inputTwo).slice(0, -1);
-        if (str.length === 0) return resetValues();
-        setInputTwo(groupNumbers(str));
-      }
+      if (activeInput === 'one') 
+        doBackspace(inputOne, setInputOne, ...args);
+      
+      if (activeInput === 'two') 
+        doBackspace(inputTwo, setInputTwo, ...args);
     }
   }
 

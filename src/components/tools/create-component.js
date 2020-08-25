@@ -5,7 +5,9 @@ import Select from '../ui/Select';
 import Control from '../ui/Control';
 import {
   convertValue,
+  groupNumbers,
   saveFocusOnInput,
+  doSetConvertedValue
 } from './tools';
 
 function createComponent(selectOneDefault, selectTwoDefault) {
@@ -50,15 +52,13 @@ function createComponent(selectOneDefault, selectTwoDefault) {
       console.log('Speed useEffect Converted Value: ' + convertedValue);
 
       if (inputOne) {
-        setConvertedValue(
-          convertValue(inputOne, selectOne, selectTwo)
-        );
+        const value = convertValue(inputOne, selectOne, selectTwo);
+        doSetConvertedValue(value, groupNumbers, setConvertedValue);
       }
 
       if (inputTwo) {
-        setConvertedValue(
-          convertValue(inputTwo, selectTwo, selectOne)
-        );
+        const value = convertValue(inputTwo, selectTwo, selectOne);
+        doSetConvertedValue(value, groupNumbers, setConvertedValue);
       }
 
       if (inputOne && inputTwo) {
