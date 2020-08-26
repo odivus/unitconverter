@@ -23,7 +23,7 @@ function ControlItem({ controlData, otherProps }) {
   
     if (item === 'clear') resetValues();
 
-    if (reNumbers.test(item) && (inputOne !== '0' && inputTwo !== '0')) {
+    if (reNumbers.test(item)) {
       const args = [
         item,
         inputOne,
