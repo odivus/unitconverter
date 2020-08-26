@@ -39,11 +39,13 @@ function Input(props) {
 
   function onChange(e) {
     const { value } = e.target;
+    const re = /^[0][0-9]{1,}$/;
+    
     e.preventDefault();
 
     if (!value) resetValues();
 
-    if (value && value.search(/^[0][0-9]{1,}$/) === -1) {
+    if (value && value.search(re) === -1) {
       const formattedValue = removeAllSpaces(value);
 
       console.log(formattedValue);
