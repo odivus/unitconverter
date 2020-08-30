@@ -1,6 +1,6 @@
-import formulas from '../data/formulas';
+import formulas from '../data/formulas-speed';
 import {removeAllSpaces} from '../components/tools/tools';
-import compose from '../../src/components/tools/compose';
+import compose from '../components/tools/compose';
 
 function doConvert(inputValue, selectOne, selectTwo) {
   if (selectOne === selectTwo) return inputValue;

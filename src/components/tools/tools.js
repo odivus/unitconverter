@@ -1,4 +1,4 @@
-import doConvert from '../../utilties/do-convert';
+import doConvert from '../../utilities/do-convert';
 
 const convertCommaToDot = (input) => input.replace(',', '.');
 

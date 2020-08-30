@@ -1,8 +1,8 @@
 import React from 'react';
-import checkInput from '../../utilties/check-input';
-import doBackspace from '../../utilties/do-backspace';
-import doComma from '../../utilties/do-comma';
-import doNumbers from '../../utilties/do-numbers';
+import checkInput from '../../utilities/check-input';
+import doBackspace from '../../utilities/do-backspace';
+import doComma from '../../utilities/do-comma';
+import doNumbers from '../../utilities/do-numbers';
 import {
   groupNumbers, 
   removeAllSpaces,

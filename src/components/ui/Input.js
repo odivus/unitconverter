@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import checkInput from '../../utilties/check-input';
+import checkInput from '../../utilities/check-input';
 import compose from '../tools/compose';
 import {
   convertDotToComma, 
@@ -40,7 +40,7 @@ function Input(props) {
   function onChange(e) {
     const { value } = e.target;
     const re = /^[0][0-9]{1,}$/;
-    
+
     e.preventDefault();
 
     if (!value) resetValues();
