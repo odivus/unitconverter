@@ -1,4 +1,4 @@
-const units = {
+const unitsSpeed = {
   miph: 'miles per hour',
   ftps: 'foots per second',
   knot: 'knots',
@@ -7,4 +7,4 @@ const units = {
   cmps: 'sentimeters per second',
 }
 
-export default units;
+export default unitsSpeed;

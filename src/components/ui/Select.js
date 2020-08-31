@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import units from '../../data/units';
+import units from '../../data/units-speed';
 
 const createOptions = (units) => (
   Object.keys(units)
