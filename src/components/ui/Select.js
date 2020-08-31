@@ -6,11 +6,14 @@ const createOptions = (units) => (
     .map(key => <option key={key} value={key}>{units[key]}</option>)
 );
 
-function Select({ selected, sendValueToParentState }) {
+function Select(props) {
+  const { selectName, selected, sendValueToParentState } = props;
   const [selectValue, setSelectValue] = useState(selected);
 
   function handleSelect(e) {
     const { value } = e.target;
+    
+    localStorage.setItem(selectName, value);
     setSelectValue(value);
     sendValueToParentState(value);
   }

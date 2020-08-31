@@ -104,7 +104,8 @@ function createComponent(selectOneDefault, selectTwoDefault) {
             setConvertedValue={setConvertedValue}
             resetValues={resetValues} />
           <Select
-            selected={selectOne}
+            selectName={'selectOne'}
+            selected={localStorage.getItem('selectOne') || selectOne}
             sendValueToParentState={setSelectOne} />
           <Input
             inputTwoValue={inputTwoValue}
@@ -117,7 +118,8 @@ function createComponent(selectOneDefault, selectTwoDefault) {
             setConvertedValue={setConvertedValue}
             resetValues={resetValues} />
           <Select
-            selected={selectTwo}
+            selectName={'selectTwo'}
+            selected={localStorage.getItem('selectTwo') || selectTwo}
             sendValueToParentState={setSelectTwo} />
         </section>
 

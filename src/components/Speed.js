@@ -1,5 +1,7 @@
 import createComponent from './tools/create-component';
 
-const Speed = createComponent('miph', 'kmph');
+const Speed = createComponent(
+  localStorage.getItem('selectOne') ||'miph', 
+  localStorage.getItem('selectTwo') || 'kmph');
 
 export default Speed;
