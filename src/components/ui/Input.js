@@ -48,24 +48,13 @@ function Input(props) {
     if (value && value.search(re) === -1) {
       const formattedValue = removeAllSpaces(value);
 
-      console.log(formattedValue);
-
       if (!checkInput(formattedValue)) return;
 
-      if (formattedValue.includes(',')) {
-        compose(
-          setInput,
-          convertDotToComma,
-        )(formattedValue);
-      }
-
-      if (!formattedValue.includes(',')) {
-        compose(
-          setInput,
-          convertDotToComma,
-          groupNumbers
-        )(formattedValue);
-      }
+      compose(
+        setInput,
+        convertDotToComma,
+        groupNumbers
+      )(formattedValue);
       
       setConvertedValue(convertedValue);
     }

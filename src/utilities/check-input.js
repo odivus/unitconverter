@@ -3,7 +3,7 @@ function checkInput(value) {
   const unitType = document.title.toLowerCase();
   
   if (unitType === 'temperature') {
-    regExp = /^[-]{0,1}[0-9]{0,}([,.]{0,1}[0-9]{0,})?$/;
+    regExp = /^[-]{0,1}[0-9]{1,}([,.]{0,1}[0-9]{0,})?$/;
   } else {
     regExp = /^[0-9]{1,}([,.]{0,1}[0-9]{0,})?$/;  
   }

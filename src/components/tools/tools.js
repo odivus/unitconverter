@@ -7,8 +7,16 @@ export const convertDotToComma = (input) => input.replace('.', ',');
 export const removeAllSpaces = (input) => input.replace(/\s+/g, '');
 
 export const groupNumbers = (input) => {
-  const pattern = /(\d)(?=(\d{3})+(\D|$))/g;
-  return input.replace(pattern, '$1 ');
+  const re = /(\d)(?=(\d{3})+(\D|$))/g;
+
+  if (input.includes(',')) {
+    const inputSplit = input.split(',');
+    const inputBeforeComma = inputSplit[0].replace(re, '$1 ');
+
+    return inputBeforeComma + ',' + inputSplit[1];
+  }
+
+  return input.replace(re, '$1 ');
 }
 
 export const convertValue = (
