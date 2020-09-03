@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import createComponent from './tools/create-component';
+import formulasTemperature from '../data/formulas-temperature';
+import units from '../data/units-temperature';
 
-function Temperature() {
-  useEffect(() => {
-    document.title = 'Temperature';
-  });
+const args = [
+  formulasTemperature,
+  units,
+  'f',
+  'c',
+  'Temperature'
+];
 
-  return (
-    <div>
-      Temperature
-    </div>
-  );
-}
+const Speed = createComponent(...args);
 
-export default Temperature;
+export default Speed;

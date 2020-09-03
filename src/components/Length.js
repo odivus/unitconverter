@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import createComponent from './tools/create-component';
+import formulasLength from '../data/formulas-length';
+import units from '../data/units-length';
 
-function Length() {
-  useEffect(() => {
-    document.title = 'Length';
-  });
+const args = [
+  formulasLength,
+  units,
+  'm',
+  'ft',
+  'Length'
+];
 
-  return (
-    <div>
-      Length
-    </div>
-  );
-}
+const Length = createComponent(...args);
 
 export default Length;

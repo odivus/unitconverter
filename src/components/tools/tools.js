@@ -1,4 +1,4 @@
-import doConvert from '../../utilities/do-convert';
+import convert from '../../utilities/convert';
 
 const convertCommaToDot = (input) => input.replace(',', '.');
 
@@ -18,9 +18,11 @@ export const convertValue = (
 ) => {
   const re = /^[0]{1,}[,0]{1,}$/;
 
-  if (input === '0'|| input.search(re) !== -1) return '0';
+  if (document.title.toLowerCase() !== 'temperature') {
+    if (input === '0'|| input.search(re) !== -1) return '0';
+  }
 
-  const convertedValue = doConvert(
+  const convertedValue = convert(
     convertCommaToDot(input),
     selectOne,
     selectTwo

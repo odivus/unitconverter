@@ -10,9 +10,17 @@ import {
   doSetConvertedValue
 } from './tools';
 
-function createComponent(selectOneDefault, selectTwoDefault) {
-  const errorMessage = 'Function createComponent wait two string arguments';
+function createComponent(...args) {
+  const [
+    formulas,
+    units,
+    selectOneDefault,
+    selectTwoDefault,
+    unitType
+  ] = args;
 
+  const errorMessage = 'Function createComponent wait two string arguments';
+  
   if (arguments.length < 2) {
     throw Error(errorMessage);
   }
@@ -29,6 +37,7 @@ function createComponent(selectOneDefault, selectTwoDefault) {
     const [activeInput, setActiveInput] = useState('');
 
     const [selectOne, setSelectOne] = useState(selectOneDefault);
+
     const [selectTwo, setSelectTwo] = useState(selectTwoDefault);
 
     const [convertedValue, setConvertedValue] = useState('');
@@ -46,18 +55,30 @@ function createComponent(selectOneDefault, selectTwoDefault) {
     }
 
     useEffect(() => {
-      document.title = 'Speed';
-      console.log('Speed useEffect Input One Value: ' + inputOne);
-      console.log('Speed useEffect Input Two Value: ' + inputTwo);
-      console.log('Speed useEffect Converted Value: ' + convertedValue);
+      document.title = unitType;
+      console.log('createComp useEffect Input One Value: ' + inputOne);
+      console.log('createComp useEffect Input Two Value: ' + inputTwo);
+      console.log('createComp useEffect Select One: ' + selectOne);
+      console.log('createComp useEffect Select Two: ' + selectTwo);
+      console.log('createComp useEffect Converted Value: ' + convertedValue);
 
       if (inputOne) {
-        const value = convertValue(inputOne, selectOne, selectTwo);
+        const value = convertValue(
+          inputOne, 
+          formulas[selectOne], 
+          formulas[selectTwo]
+        );
+
         doSetConvertedValue(value, groupNumbers, setConvertedValue);
       }
 
       if (inputTwo) {
-        const value = convertValue(inputTwo, selectTwo, selectOne);
+        const value = convertValue(
+          inputTwo, 
+          formulas[selectTwo], 
+          formulas[selectOne]
+        );
+
         doSetConvertedValue(value, groupNumbers, setConvertedValue);
       }
 
@@ -104,8 +125,9 @@ function createComponent(selectOneDefault, selectTwoDefault) {
             setConvertedValue={setConvertedValue}
             resetValues={resetValues} />
           <Select
+            units={units}
             selectName={'selectOne'}
-            selected={localStorage.getItem('selectOne') || selectOne}
+            selected={selectOne}
             sendValueToParentState={setSelectOne} />
           <Input
             inputTwoValue={inputTwoValue}
@@ -118,8 +140,9 @@ function createComponent(selectOneDefault, selectTwoDefault) {
             setConvertedValue={setConvertedValue}
             resetValues={resetValues} />
           <Select
+            units={units}
             selectName={'selectTwo'}
-            selected={localStorage.getItem('selectTwo') || selectTwo}
+            selected={selectTwo}
             sendValueToParentState={setSelectTwo} />
         </section>
 

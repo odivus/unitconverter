@@ -39,8 +39,8 @@ function Input(props) {
 
   function onChange(e) {
     const { value } = e.target;
-    const re = /^[0][0-9]{1,}$/;
-
+    const re = /^[-]{0,}[0][0-9]{1,}$/;
+  
     e.preventDefault();
 
     if (!value) resetValues();
