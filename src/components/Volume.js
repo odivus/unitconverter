@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import createComponent from './tools/create-component';
+import formulasVolume from '../data/formulas-volume';
+import units from '../data/units-volume';
 
-function Volume() {
-  useEffect(() => {
-    document.title = 'Volume';
-  });
+const args = [
+  formulasVolume,
+  units,
+  'galusa',
+  'liter',
+  'Volume'
+];
 
-  return (
-    <div>
-      Volume
-    </div>
-  );
-}
+const Volume = createComponent(...args);
 
 export default Volume;

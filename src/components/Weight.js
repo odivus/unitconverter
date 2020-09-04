@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import createComponent from './tools/create-component';
+import formulasWeight from '../data/formulas-weight';
+import units from '../data/units-weight';
 
-function Weight() {
-  useEffect(() => {
-    document.title = 'Weight';
-  });
+const args = [
+  formulasWeight,
+  units,
+  'pound',
+  'kilogram',
+  'Weight'
+];
 
-  return (
-    <div>
-      Weight
-    </div>
-  );
-}
+const Weight = createComponent(...args);
 
 export default Weight;
