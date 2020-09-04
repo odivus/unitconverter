@@ -49,6 +49,7 @@ function ControlItem({ controlData, otherProps }) {
         activeInput,
         setInputOne,
         setInputTwo,
+        groupNumbers,
         removeAllSpaces
       ];
 

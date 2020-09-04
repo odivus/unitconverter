@@ -7,17 +7,18 @@ function doComma(args) {
     activeInput,
     setInputOne,
     setInputTwo,
+    groupNumbers,
     removeAllSpaces
   ] = args;
 
   if (activeInput === 'one') {
     const str = removeAllSpaces(inputOne + item);
-    if (checkInput(str)) setInputOne(str);
+    if (checkInput(str)) setInputOne(groupNumbers(str));
   }
 
   if (activeInput === 'two') {
     const str = removeAllSpaces(inputTwo + item);
-    if (checkInput(str)) setInputTwo(str);
+    if (checkInput(str)) setInputTwo(groupNumbers(str));
   }
 }
 
