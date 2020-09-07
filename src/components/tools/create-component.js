@@ -5,7 +5,6 @@ import Select from '../ui/Select';
 import Control from '../ui/Control';
 import {
   convertValue,
-  groupNumbers,
   saveFocusOnInput,
   doSetConvertedValue
 } from './tools';
@@ -69,7 +68,7 @@ function createComponent(...args) {
           formulas[selectTwo]
         );
 
-        doSetConvertedValue(value, groupNumbers, setConvertedValue);
+        doSetConvertedValue(value, setConvertedValue);
       }
 
       if (inputTwo) {
@@ -79,7 +78,7 @@ function createComponent(...args) {
           formulas[selectOne]
         );
 
-        doSetConvertedValue(value, groupNumbers, setConvertedValue);
+        doSetConvertedValue(value, setConvertedValue);
       }
 
       if (inputOne && inputTwo) {

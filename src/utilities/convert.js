@@ -1,4 +1,4 @@
-import { removeAllSpaces } from '../components/tools/tools';
+import { removeAllSpaces, groupNumbers } from '../components/tools/tools';
 import compose from '../components/tools/compose';
 import convertTemperature from './convert-temperature';
 
@@ -12,13 +12,22 @@ function convert(value, inUnit, outUnit) {
     removeAllSpaces
   )(value);
 
+  const title = document.title.toLowerCase();
   let result = dataValue * outUnit / inUnit;
 
-  if (document.title.toLowerCase() === 'temperature') {
-    return convertTemperature(result, dataValue, outUnit);
+  if (title === 'temperature') {
+    const formattedResult = convertTemperature(result, dataValue, outUnit);
+    return groupNumbers( formattedResult.toString() );
   }
+
+  if (title === 'currency') {
+    const formattedResult = parseFloat( result.toFixed(2) );
+    return groupNumbers( formattedResult.toString() );
+  }
+
+  const formattedResult = parseFloat( result.toPrecision(4) );
   
-  return parseFloat( result.toPrecision(4) );
+  return groupNumbers( formattedResult.toString() );
 }
 
 export default convert;

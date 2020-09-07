@@ -8,12 +8,17 @@ export const removeAllSpaces = (input) => input.replace(/\s+/g, '');
 
 export const groupNumbers = (input) => {
   const re = /(\d)(?=(\d{3})+(\D|$))/g;
+  const reComma = /^\d{1,},/;
+
+  if (input.includes('.')) input = input.replace('.', ',');
 
   if (input.includes(',')) {
-    const inputSplit = input.split(',');
-    const inputBeforeComma = inputSplit[0].replace(re, '$1 ');
+    if (input.search(reComma) !== -1) {
+      const inputSplit = input.split(',');
+      const inputBeforeComma = inputSplit[0].replace(re, '$1 ');
 
-    return inputBeforeComma + ',' + inputSplit[1];
+      return inputBeforeComma + ',' + inputSplit[1];
+    }
   }
 
   return input.replace(re, '$1 ');
@@ -39,16 +44,8 @@ export const convertValue = (
   return convertedValue.toString().replace('.', ',');
 }
 
-export const doSetConvertedValue = (
-  value, 
-  groupNumbers, 
-  setConvertedValue
-) => {
-  if (value.includes(',')) {
-    setConvertedValue(value);
-  } else {
-    setConvertedValue(groupNumbers(value));
-  }
+export const doSetConvertedValue = (value, setConvertedValue) => {
+  setConvertedValue(value);
 }
 
 export const saveFocusOnInput = (e) => {

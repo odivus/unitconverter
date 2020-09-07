@@ -34,9 +34,6 @@ function Input(props) {
     }
   });
 
-  console.log('Input Value ' + inputValue);
-  console.log('Converted Value ' + convertedValue);
-
   function onChange(e) {
     const { value } = e.target;
     const re = /^[-]{0,}[0][0-9]{1,}$/;
