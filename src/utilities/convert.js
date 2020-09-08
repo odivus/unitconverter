@@ -1,6 +1,9 @@
-import { removeAllSpaces, groupNumbers } from '../components/tools/tools';
 import compose from '../components/tools/compose';
 import convertTemperature from './convert-temperature';
+import { 
+  groupNumbers, 
+  removeAllSpaces, 
+} from '../components/tools/tools';
 
 function convert(value, inUnit, outUnit) {
   if (inUnit === outUnit) return value;

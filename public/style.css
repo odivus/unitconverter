@@ -109,6 +109,11 @@ option {
   grid-column: span 2;
 }
 
+.error {
+  font-size: calc(20px + 4vmin);
+  margin: 16px 12px;
+}
+
 @media (max-width: 940px) {
   .wrap {
     max-width: 100vmax;

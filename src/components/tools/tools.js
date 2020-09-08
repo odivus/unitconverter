@@ -6,6 +6,25 @@ export const convertDotToComma = (input) => input.replace('.', ',');
 
 export const removeAllSpaces = (input) => input.replace(/\s+/g, '');
 
+export const trimCurrencyValue = (value) => {
+  if (document.title.toLowerCase() !== 'currency') return value;
+  if (!value) return;
+  if (typeof value !== 'string') return value;
+  
+  if (!value.includes(',')) return value;
+  
+  if (value.includes(',')) {
+    const splitValue = value.split(',');
+    const rightSide = splitValue[1];
+    
+    if (rightSide.length < 2) {
+      return value;
+    } else {
+      return splitValue[0] + ',' + rightSide.substr(0, 2);
+    }
+  }
+}
+
 export const groupNumbers = (input) => {
   const re = /(\d)(?=(\d{3})+(\D|$))/g;
   const reComma = /^\d{1,},/;

@@ -5,6 +5,7 @@ import {
   convertDotToComma, 
   groupNumbers,
   removeAllSpaces,
+  trimCurrencyValue
 } from '../tools/tools';
 
 function Input(props) {
@@ -49,6 +50,7 @@ function Input(props) {
 
       compose(
         setInput,
+        trimCurrencyValue,
         convertDotToComma,
         groupNumbers
       )(formattedValue);

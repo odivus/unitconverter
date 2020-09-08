@@ -1,9 +1,10 @@
 import React from 'react';
-import errorMessages from '../data/error-messages';
 
-const Error = ({ errorType }) => (
-  <div>
-    {errorMessages[errorType]}
+const Error = ({ errorText }) => (
+  <div className='center'>
+    <div className='error'>
+      {errorText}
+    </div>
   </div>
 );
 
