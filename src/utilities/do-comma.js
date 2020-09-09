@@ -1,3 +1,8 @@
+import {
+  groupNumbers,
+  removeAllSpaces,
+} from '../components/tools/tools';
+
 function doComma(args) {
   const [
     item,
@@ -7,8 +12,6 @@ function doComma(args) {
     activeInput,
     setInputOne,
     setInputTwo,
-    groupNumbers,
-    removeAllSpaces
   ] = args;
 
   if (activeInput === 'one') {

@@ -4,10 +4,6 @@ import doBackspace from '../../utilities/do-backspace';
 import doPlusMinus from '../../utilities/do-plus-minus';
 import doComma from '../../utilities/do-comma';
 import doNumbers from '../../utilities/do-numbers';
-import {
-  groupNumbers, 
-  removeAllSpaces,
-} from '../tools/tools';
 
 function ControlItem({ controlData, otherProps }) {
   const {
@@ -33,8 +29,6 @@ function ControlItem({ controlData, otherProps }) {
         activeInput,
         setInputOne,
         setInputTwo,
-        groupNumbers,
-        removeAllSpaces
       ];
 
       doNumbers(args);
@@ -49,25 +43,17 @@ function ControlItem({ controlData, otherProps }) {
         activeInput,
         setInputOne,
         setInputTwo,
-        groupNumbers,
-        removeAllSpaces
       ];
 
       doComma(args);
     }
 
     if (item === '<--') {
-      const args = [
-        resetValues, 
-        groupNumbers, 
-        removeAllSpaces
-      ];
-
       if (activeInput === 'one') 
-        doBackspace(inputOne, setInputOne, ...args);
+        doBackspace(inputOne, setInputOne, resetValues);
       
       if (activeInput === 'two') 
-        doBackspace(inputTwo, setInputTwo, ...args);
+        doBackspace(inputTwo, setInputTwo, resetValues);
     }
 
     if (item === '+/-' && title === 'temperature') {

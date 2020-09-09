@@ -1,4 +1,9 @@
 import compose from '../components/tools/compose';
+import {
+  groupNumbers,
+  removeAllSpaces,
+  trimCurrencyValue
+} from '../components/tools/tools';
 
 function doNumbers(args) {
   const [
@@ -8,8 +13,6 @@ function doNumbers(args) {
     activeInput,
     setInputOne,
     setInputTwo,
-    groupNumbers,
-    removeAllSpaces
   ] = args;
 
   const re = /^[-]{0,}[0]{1,}$/;
@@ -17,6 +20,7 @@ function doNumbers(args) {
   if (activeInput === 'one' && inputOne.search(re) === -1) {
     compose(
       setInputOne,
+      trimCurrencyValue,
       groupNumbers
     )(removeAllSpaces(inputOne) + item);
   }
@@ -24,6 +28,7 @@ function doNumbers(args) {
   if (activeInput === 'two' && inputTwo.search(re) === -1) {
     compose(
       setInputTwo,
+      trimCurrencyValue,
       groupNumbers
     )(removeAllSpaces(inputTwo) + item);
   }
