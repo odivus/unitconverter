@@ -26,7 +26,7 @@ input {
   font-family: 'Fira Sans', Arial, sans-serif;
   font-weight: 400;
   width: 100%;
-  font-size: calc(20px + 5vmin);
+  font-size: calc(18px + 5vmin);
   margin: 20px 0 12px;
   background-color: #eecc84;
   border: 1px solid #eecc84;
@@ -61,12 +61,13 @@ option {
 .main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 22vh);
+  grid-template-rows: repeat(3, 20vmin);
   gap: 2vw;
   max-width: 54vmax;
   min-width: 316px;
   margin: 0 auto;
-  font-family: 'Roboto', Arial, sans-serif;
+  /* font-family: 'Roboto', Arial, sans-serif; */
+  font-family: 'Fira Sans', Arial, sans-serif;
 }
 
 .h2 {
@@ -131,13 +132,19 @@ option {
 }
 
 .control div:last-child {
+  font-size: calc(16px + 2vmin);
   background-color: #ea8a4a;
   grid-column: span 2;
 }
 
 .control div:nth-child(12) {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(16px + 2vmin);
   background-color: #ea8a4a;
+}
+
+.control div:nth-child(13) {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .control div:last-child:hover,
@@ -158,6 +165,7 @@ option {
 @media (max-height: 768px) {
   .wrap {
     max-height: 100vh;
+    max-width: 50vw;
   }
 
   .control {
@@ -183,6 +191,15 @@ option {
   .control {
     font-size: calc(12px + 2vmin);
   }
+
+  .control div:last-child {
+    font-size: calc(10px + 2vmin);
+  }
+
+  .control div:nth-child(12) {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(10px + 2vmin);
+  }
 }
 
 @media (min-width: 1200px) {
@@ -191,9 +208,21 @@ option {
   }
 }
 
+@media (max-width: 600px) {
+  .wrap {
+    max-height: 80vmax;
+  }
+}
+
 @media (max-width: 480px) {
   .h2 {
     margin: 10px 0 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .wrap {
+    max-height: 70vmax;
   }
 }
 
