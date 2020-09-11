@@ -55,12 +55,7 @@ function createComponent(...args) {
 
     useEffect(() => {
       document.title = unitType;
-      console.log('createComp useEffect Input One Value: ' + inputOne);
-      console.log('createComp useEffect Input Two Value: ' + inputTwo);
-      console.log('createComp useEffect Select One: ' + selectOne);
-      console.log('createComp useEffect Select Two: ' + selectTwo);
-      console.log('createComp useEffect Converted Value: ' + convertedValue);
-
+      
       if (inputOne) {
         const value = convertValue(
           inputOne, 
@@ -106,8 +101,6 @@ function createComponent(...args) {
       selectTwo,
       activeInput,
       convertedValue]);
-
-    console.log(activeInput);
 
     return (
       <div className='wrap'>

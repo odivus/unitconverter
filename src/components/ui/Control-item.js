@@ -17,13 +17,14 @@ function ControlItem({ controlData, otherProps }) {
 
   function onClick(item) {
     const reNumbers = /\d/,
-          title = document.title.toLowerCase();
-  
-    if (item === 'clear') resetValues();
+          title = document.title.toLowerCase(),
+          [key] = Object.keys(item);
 
-    if (reNumbers.test(item)) {
+    if (key === 'clear') resetValues();
+
+    if (reNumbers.test(item[key])) {
       const args = [
-        item,
+        item[key],
         inputOne,
         inputTwo,
         activeInput,
@@ -34,9 +35,9 @@ function ControlItem({ controlData, otherProps }) {
       doNumbers(args);
     }
 
-    if (item === ',') {
+    if (key === 'comma') {
       const args = [
-        item,
+        item[key],
         inputOne,
         inputTwo,
         checkInput,
@@ -48,7 +49,7 @@ function ControlItem({ controlData, otherProps }) {
       doComma(args);
     }
 
-    if (item === '<--') {
+    if (key === 'backspace') {
       if (activeInput === 'one') 
         doBackspace(inputOne, setInputOne, resetValues);
       
@@ -56,7 +57,7 @@ function ControlItem({ controlData, otherProps }) {
         doBackspace(inputTwo, setInputTwo, resetValues);
     }
 
-    if (item === '+/-' && title === 'temperature') {
+    if (key === 'plusMinus' && title === 'temperature') {
       if (activeInput === 'one')
         doPlusMinus(inputOne, setInputOne);
 
@@ -65,14 +66,17 @@ function ControlItem({ controlData, otherProps }) {
     }
   }
 
-  return controlData.map(item => (
+  return controlData.map((item, index) => {
+    const [ keyItem ] = Object.keys(item);
+
+    return (
     <div
-      key={item} 
+      key={index} 
       onClick={() => onClick(item)}
       className='center'>
-        {item}
+      {item[keyItem]}
     </div>
-    )
+    )}
   );
 }
 

@@ -17,6 +17,8 @@ function doNumbers(args) {
 
   const re = /^[-]{0,}[0]{1,}$/;
 
+  if (item.length > 19) return;
+
   if (activeInput === 'one' && inputOne.search(re) === -1) {
     compose(
       setInputOne,
