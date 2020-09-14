@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 
 export const mainItems = [
@@ -11,6 +11,10 @@ export const mainItems = [
 ];
 
 export function Items({ mainItems, goToRoute }) {
+  useEffect(() => {
+    document.title = 'Unit Converter';
+  });
+  
   return mainItems.map((item, index) => {
     return (
       <div
