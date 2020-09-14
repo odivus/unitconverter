@@ -11,10 +11,10 @@ export const mainItems = [
 ];
 
 export function Items({ mainItems, goToRoute }) {
-  return mainItems.map(item => {
+  return mainItems.map((item, index) => {
     return (
       <div
-        key={Date.now().toString() + Math.random()}
+        key={index}
         className='center'
         onClick={() => goToRoute(`/${item.toLowerCase()}`)}>
         {item}

@@ -12,25 +12,25 @@ import Weight from './Weight';
 function Routes() {
   return (
     <Switch>
-      <Route exact path='/'>
+      <Route exact strict path='/'>
         <Main />
       </Route>
-      <Route path='/currency'>
+      <Route exact strict path='/currency'>
         <Currency />
       </Route>
-      <Route path='/temperature'>
+      <Route exact strict path='/temperature'>
         <Temperature />
       </Route>
-      <Route path='/speed'>
+      <Route exact strict path='/speed'>
         <Speed />
       </Route>
-      <Route path='/volume'>
+      <Route exact strict path='/volume'>
         <Volume />
       </Route>
-      <Route path='/length'>
+      <Route exact strict path='/length'>
         <Length />
       </Route>
-      <Route path='/weight'>
+      <Route exact strict path='/weight'>
         <Weight />
       </Route>
       <Redirect to='/' />

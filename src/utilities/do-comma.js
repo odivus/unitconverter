@@ -14,6 +14,8 @@ function doComma(args) {
     setInputTwo,
   ] = args;
 
+  if (inputOne.length > 18 || inputTwo.length > 18) return;
+
   if (activeInput === 'one') {
     const str = removeAllSpaces(inputOne + item);
     if (checkInput(str)) setInputOne(groupNumbers(str));
