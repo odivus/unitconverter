@@ -6,12 +6,13 @@
 // eslint-disable-next-line
 //import toJson from 'enzyme-to-json'
 // import raf from './tempPolyfills.js';
-import Enzyme, { 
+import { 
   configure, 
   shallow, 
   render, 
   mount 
 } from 'enzyme';
+
 import Adapter from 'enzyme-adapter-react-16';
 
 // React 16 Enzyme adapter
