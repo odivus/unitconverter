@@ -2,13 +2,18 @@ import React, {useState, useEffect} from 'react';
 import createComponent from './tools/create-component';
 import getCurrencyData from '../data/get-currency-data';
 import unitsCurrency from '../data/units-currency';
-import {apiExchangeUrl as url} from '../data/api-exchange-url';
 
 import Header from './Header';
 import Error from './Error';
 
 function Currency() {
   const [data, setData] = useState({});
+
+  useEffect(() => {
+    getCurrencyData()
+      .then(data => setData(data))
+  }, []);
+  
   const args = [
     data.rates,
     unitsCurrency,
@@ -16,12 +21,8 @@ function Currency() {
     'RUB',
     'Currency'
   ];
-  const Component = createComponent(...args);
 
-  useEffect(() => {
-    getCurrencyData(url)
-      .then(data => setData(data))
-  }, []);
+  const Component = createComponent(...args);
 
   return (
     data.error 
