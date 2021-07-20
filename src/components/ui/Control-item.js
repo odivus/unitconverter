@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '../ui/Button/Button';
+
 import checkInput from '../../utilities/check-input';
 import doBackspace from '../../utilities/do-backspace';
 import doPlusMinus from '../../utilities/do-plus-minus';
@@ -70,12 +72,14 @@ function ControlItem({ controlData, otherProps }) {
     const [ keyItem ] = Object.keys(item);
 
     return (
-    <div
-      key={index} 
-      onClick={() => onClick(item)}
-      className='center'>
-      {item[keyItem]}
-    </div>
+      <div
+        key={index} 
+        onClick={() => onClick(item)}
+      >
+        <Button>
+          {item[keyItem]}
+        </Button>
+      </div>
     )}
   );
 }

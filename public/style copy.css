@@ -63,8 +63,6 @@ option {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 20vmin);
   gap: 2vw;
-  align-items: center;
-  justify-items: center;
   max-width: 54vmax;
   min-width: 316px;
   margin: 0 auto;
@@ -78,9 +76,7 @@ option {
 }
 
 .main div {
-  font-size: calc(18px + 1vmin);
-  width: 100%;
-  height: 100%;
+  font-size: calc(16px + 2vmin);
 }
 
 .wrap {
@@ -118,6 +114,10 @@ option {
   background-color: #c5c5ba;
 }
 
+.main div:active {
+  animation: gradient 80ms;
+}
+
 .main > :nth-child(1),
 .main > :nth-child(4),
 .main > :nth-child(5) {
@@ -153,6 +153,7 @@ option {
 .main > :nth-child(3):active,
 .main > :nth-child(6):active {
   background-color: #ca6623;
+  animation: gradient 80ms;
 }
 
 .control div:hover, 
@@ -161,7 +162,7 @@ option {
   cursor: pointer;
 }
 
-.control button:hover {
+.control div:hover {
   background-color: #b8b8ad;
 }
 
@@ -171,6 +172,8 @@ option {
 
 .categories:active {
   background-color: #e7a618;
+  animation: gradient 80ms;
+
 }
 
 .control div:last-child {
@@ -199,23 +202,68 @@ option {
   background-color: #ca6623;
 }
 
-.control div button:hover {
-  background-color: #b8b8ad;
-}
-
-.control div:last-child button,
-.control div:nth-child(12) button {
-  background-color: #ea8a4a;
-}
-
-.control div:last-child button:hover,
-.control div:nth-child(12) button:hover {
-  background-color: #dd722a;
+.control div:active {
+  background-color: #a5a59a;
+  animation: gradient 40ms;
 }
 
 .error {
   font-size: calc(20px + 4vmin);
   margin: 16px 12px;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-image: -webkit-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 0%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  25% {
+    background-image: -webkit-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 15%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  50% {
+    background-image: -webkit-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 30%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  75% {
+    background-image: -webkit-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 45%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  100% {
+    background-image: -webkit-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 60%, rgba(0, 0, 0, 0.027) 100%);
+  }
+}
+
+@-moz-keyframes gradient {
+  0% {
+    background-image: -moz-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 0%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  25% {
+    background-image: -moz-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 15%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  50% {
+    background-image: -moz-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 30%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  75% {
+    background-image: -moz-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 45%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  100% {
+    background-image: -moz-radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 60%, rgba(0, 0, 0, 0.027) 100%);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 0%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  25% {
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 15%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  50% {
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 30%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  75% {
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 45%, rgba(0, 0, 0, 0.027) 100%);
+  }
+  100% {
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.514) 60%, rgba(0, 0, 0, 0.027) 100%);
+  }
 }
 
 @media (max-height: 768px) {
@@ -273,6 +321,12 @@ option {
     grid-template-rows: repeat(3, 26vmin);
   }
 
+}
+
+@media (max-width: 480px) {
+  .h2 {
+    margin: 10px 0 20px;
+  }
 }
 
 @media (max-width: 420px) {

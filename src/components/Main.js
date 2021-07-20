@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 export const mainItems = [
   'Currency',
@@ -36,8 +36,8 @@ function Main() {
 
   return (
     <>
-      <h2 className="h2 center">Unit Converter</h2>
-      <div className="main">
+      <h2 className='h2 center'>Unit Converter</h2>
+      <div className='main'>
         <Items
           mainItems={mainItems}
           goToRoute={goToRoute} />
