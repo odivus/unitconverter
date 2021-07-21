@@ -7,7 +7,7 @@ import Header from './Header';
 import Error from './Error';
 
 function Currency() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({rates: 1});
 
   useEffect(() => {
     getCurrencyData()

@@ -1,1 +1,1 @@
-export const apiExchangeUrl = 'https://api.exchangeratesapi.io/latest?base=USD';
+export const apiExchangeUrl = `http://api.exchangeratesapi.io/v1/latest?access_key=${process.env.REACT_APP_API_KEY}`;

@@ -69,6 +69,7 @@ option {
   min-width: 316px;
   margin: 0 auto;
   font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: 500;
 }
 
 .h2 {
@@ -78,7 +79,7 @@ option {
 }
 
 .main div {
-  font-size: calc(18px + 1vmin);
+  font-size: calc(18px + 1.5vmin);
   width: 100%;
   height: 100%;
 }
@@ -203,6 +204,11 @@ option {
   background-color: #b8b8ad;
 }
 
+.control div:nth-child(11) button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
 .control div:last-child button,
 .control div:nth-child(12) button {
   background-color: #ea8a4a;
@@ -227,12 +233,7 @@ option {
   .control {
     margin-top: 6px;
   }
-  
-  header {
-    font-size: calc(8px + 2vmin);
-    margin-bottom: 5px;
-  }
-  
+
   select, 
   option {
     font-size: calc(12px + 1vmin);
