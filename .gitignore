@@ -6,6 +6,10 @@
 
 # testing
 /coverage
+/__tests__
+/test
+.test.js
+.spec.js
 
 # production
 /build
