@@ -16,7 +16,7 @@
 
 # misc
 _project
-.code-workspace
+*.code-workspace
 .DS_Store
 .env
 .env.local
