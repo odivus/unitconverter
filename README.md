@@ -14,4 +14,4 @@
 Код легко расширяемый для добавления новых величин и валют.
 
 ## Стек
-React, Javascript, Css
+React, React Router, Javascript, Css
