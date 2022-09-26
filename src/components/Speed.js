@@ -1,15 +1,19 @@
-import createComponent from './tools/create-component';
+import React from 'react';
 import formulasSpeed from '../data/formulas-speed';
 import units from '../data/units-speed';
 
-const args = [
-  formulasSpeed,
-  units,
-  'miph',
-  'kmph',
-  'Speed'
-];
+import Host from './Host';
 
-const Speed = createComponent(...args);
+function Speed() {
+  return (
+    <Host
+      formulas={formulasSpeed}
+      units={units}
+      selectOneDefault={'miph'}
+      selectTwoDefault={'kmph'}
+      unitType={'Speed'}
+    />
+  );
+}
 
 export default Speed;

@@ -1,15 +1,19 @@
-import createComponent from './tools/create-component';
+import React from 'react';
 import formulasWeight from '../data/formulas-weight';
 import units from '../data/units-weight';
 
-const args = [
-  formulasWeight,
-  units,
-  'pound',
-  'kilogram',
-  'Weight'
-];
+import Host from './Host';
 
-const Weight = createComponent(...args);
+function Weight() {
+  return (
+    <Host
+      formulas={formulasWeight}
+      units={units}
+      selectOneDefault={'pound'}
+      selectTwoDefault={'kilogram'}
+      unitType={'Weight'}
+    />
+  );
+}
 
 export default Weight;

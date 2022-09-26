@@ -1,15 +1,19 @@
-import createComponent from './tools/create-component';
+import React from 'react';
 import formulasVolume from '../data/formulas-volume';
 import units from '../data/units-volume';
 
-const args = [
-  formulasVolume,
-  units,
-  'galusa',
-  'liter',
-  'Volume'
-];
+import Host from './Host';
 
-const Volume = createComponent(...args);
+function Volume() {
+  return (
+    <Host
+      formulas={formulasVolume}
+      units={units}
+      selectOneDefault={'galusa'}
+      selectTwoDefault={'liter'}
+      unitType={'Volume'}
+    />
+  );
+}
 
 export default Volume;

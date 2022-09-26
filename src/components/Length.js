@@ -1,15 +1,19 @@
-import createComponent from './tools/create-component';
+import React from 'react';
 import formulasLength from '../data/formulas-length';
 import units from '../data/units-length';
 
-const args = [
-  formulasLength,
-  units,
-  'm',
-  'ft',
-  'Length'
-];
+import Host from './Host';
 
-const Length = createComponent(...args);
+function Length() {
+  return (
+    <Host
+      formulas={formulasLength}
+      units={units}
+      selectOneDefault={'m'}
+      selectTwoDefault={'ft'}
+      unitType={'Length'}
+    />
+  );
+}
 
 export default Length;

@@ -1,15 +1,19 @@
-import createComponent from './tools/create-component';
+import React from 'react';
 import formulasTemperature from '../data/formulas-temperature';
 import units from '../data/units-temperature';
 
-const args = [
-  formulasTemperature,
-  units,
-  'f',
-  'c',
-  'Temperature'
-];
+import Host from './Host';
 
-const Speed = createComponent(...args);
+function Temperature() {
+  return (
+    <Host
+      formulas={formulasTemperature}
+      units={units}
+      selectOneDefault={'f'}
+      selectTwoDefault={'c'}
+      unitType={'Temperature'}
+    />
+  );
+}
 
-export default Speed;
+export default Temperature;
