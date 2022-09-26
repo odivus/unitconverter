@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import createComponent from './tools/create-component';
 import getCurrencyData from '../data/get-currency-data';
 import unitsCurrency from '../data/units-currency';
 
+import Host from './Host';
 import Header from './Header';
 import Error from './Error';
 
@@ -13,16 +13,6 @@ function Currency() {
     getCurrencyData()
       .then(data => setData(data))
   }, []);
-  
-  const args = [
-    data.rates,
-    unitsCurrency,
-    'USD',
-    'RUB',
-    'Currency'
-  ];
-
-  const Component = createComponent(...args);
 
   return (
     data.error 
@@ -30,7 +20,13 @@ function Currency() {
           <Header />
           <Error errorText={data.error} /> 
         </>
-      : <Component />
+      : <Host 
+          formulas={data.rates} 
+          units={unitsCurrency}
+          selectOneDefault={'USD'}
+          selectTwoDefault={'RUB'}
+          unitType={'Currency'}
+        />
   );
 }
 
