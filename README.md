@@ -1,5 +1,5 @@
 # Unit Converter
-[http://odivus-unitconverter.herokuapp.com](http://odivus-unitconverter.herokuapp.com)  
+[https://unitconverter-black.vercel.app](https://unitconverter-black.vercel.app)  
 По ссылке может открываться дольше обычного, это связяно с ограничениями бесплатного хостинга.
 
 Конвертер международных величин, для единиц длины, скорости, температуры, объема, массы. Также умеет конвертировать валюты, используя сторонний api.
