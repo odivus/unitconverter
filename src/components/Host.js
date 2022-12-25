@@ -29,11 +29,11 @@ function Component(props) {
 
   const [convertedValue, setConvertedValue] = useState('');
 
-  const setActiveInputOne = () => setActiveInput('one'),
-    setActiveInputTwo = () => setActiveInput('two');
+  const setActiveInputOne = () => setActiveInput('one');
+  const setActiveInputTwo = () => setActiveInput('two');
 
-  const inputOneValue = !inputOne ? convertedValue : inputOne,
-    inputTwoValue = !inputTwo ? convertedValue : inputTwo;
+  const inputOneValue = !inputOne ? convertedValue : inputOne;
+  const inputTwoValue = !inputTwo ? convertedValue : inputTwo;
 
   function resetValues() {
     setInputOne('');
