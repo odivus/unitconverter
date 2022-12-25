@@ -4,7 +4,7 @@ import errorMessages from './error-messages';
 async function getCurrencyData() {
   const headers = new Headers();
   
-  headers.append("apikey", apiExchangeUrl);
+  headers.append("apikey", process.env.REACT_APP_API_KEY);
 
   const requestOptions = {
     method: 'GET',
